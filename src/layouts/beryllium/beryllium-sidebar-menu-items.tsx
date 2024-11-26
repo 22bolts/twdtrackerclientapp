@@ -34,7 +34,6 @@ import {
   PiLockKey,
   PiChatCenteredDots,
   PiCurrencyCircleDollar,
-  PiFolderNotch,
   PiHouseLine,
   PiAirplaneTilt,
   PiPokerChip,
@@ -51,7 +50,7 @@ export const berylliumSidebarMenuItems = [
   {
     name: 'File Manager',
     href: '/',
-    icon: <PiFolderNotch />,
+    icon: <PiHouseLine />,
   },
   {
     name: 'Executive',
@@ -237,7 +236,7 @@ export const berylliumSidebarMenuItems = [
   {
     name: 'File Manager',
     href: routes.file.manager,
-    icon: <PiFolderNotch />,
+    icon: <PiHouseLine />,
   },
   {
     name: 'Roles & Permissions',

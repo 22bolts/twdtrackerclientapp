@@ -7,7 +7,7 @@ export default function RecentCustomers({ className }: { className?: string }) {
     <BasicTableWidget
       title="Recent Customers"
       data={recentCustomers}
-      //@ts-expect-error
+      //@ts-expect-error - Type mismatch check
       getColumns={getColumns}
       className={className}
       enablePagination

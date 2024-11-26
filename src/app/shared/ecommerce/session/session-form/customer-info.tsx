@@ -116,11 +116,13 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
                 inputProps={{ label: 'Order date' }}
                 placeholderText="Select Date"
                 dateFormat="dd/MM/yyyy"
-                onChange={onChange}
+                onChange={(date: Date | null) => {
+                  // Ensure a valid date is passed
+                  onChange(date);
+                }}
                 onBlur={onBlur}
                 wrapperClassName="w-full"
-                //@ts-expect-error
-                selected={value}
+                selected={value instanceof Date ? value : null}
               />
             )}
           />
