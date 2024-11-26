@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Title, Text } from '@/components/ui/text';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import WidgetCard from '@/components/cards/widget-card';
 import { Button } from '@/components/ui/button';
 import { topProducts } from '@/data/top-products-data';
@@ -19,11 +19,30 @@ const previousMonthDate = new Date(
 export default function BestSellers({ className }: { className?: string }) {
   const [starRangeDate, setStartRangeDate] = useState<Date>(previousMonthDate);
   const [endRangeDate, setEndRangeDate] = useState<Date>(currentDate);
-  const handleRangeChange = (dates: [Date, Date]) => {
-    const [start, end] = dates;
-    setStartRangeDate(start);
-    setEndRangeDate(end);
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
+    previousMonthDate, 
+    currentDate
+  ]);
+
+
+  // const handleRangeChange = (date: Date | [Date | null, Date | null] | null) => {
+  //   const [start, end] = date;
+  //   setStartRangeDate(start);
+  //   setEndRangeDate(end);
+  // };
+  // const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
+  //   previousMonthDate, 
+  //   currentDate
+  // ]);
+
+  const handleRangeChange = (
+    dates: Date | [Date | null, Date | null] | null
+  ) => {
+    if (Array.isArray(dates)) {
+      setDateRange(dates);
+    }
   };
+
 
   return (
     <WidgetCard
@@ -31,20 +50,18 @@ export default function BestSellers({ className }: { className?: string }) {
       description={
         <>
           Overview:
-          <DatePicker
-            selected={starRangeDate}
+          <DatePickerWrapper
+            value={starRangeDate}
             onChange={handleRangeChange}
-            startDate={starRangeDate}
-            endDate={endRangeDate}
-            monthsShown={1}
-            placeholderText="Select Date in a Range"
-            selectsRange
+            dateFormat="MMM, yyyy"
+            placeholderText="Select Month"
+            showMonthYearPicker
+            popperPlacement="bottom-end"
             inputProps={{
               variant: 'text',
-              inputClassName:
-                'p-0 pe-1 h-auto [&.is-focus]:ms-2 [&_input]:text-ellipsis',
-              prefixClassName: 'hidden',
+              inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
             }}
+            className="w-36"
           />
         </>
       }

@@ -10,7 +10,7 @@ export const sendAccountConfirmationEmail = async (data: { email: string }) => {
   await sendEmail({
     to: to,
     subject: 'Your Account is Created!',
-    html: render(AccountConfirmationEmail(data.email)),
+    html: await render(AccountConfirmationEmail(data.email)),
   });
 
   return true;

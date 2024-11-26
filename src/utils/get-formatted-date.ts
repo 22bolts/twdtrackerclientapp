@@ -7,7 +7,7 @@ export function getFormattedDateString(date: number | string | null | Date) {
 
 export function getDateRangeStateValues(state: string | null) {
   if (!state) {
-    return null;
+    return undefined;
   }
   return new Date(state);
 }

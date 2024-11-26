@@ -7,7 +7,7 @@ import { Text } from '@/components/ui/text';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PhoneNumber } from '@/components/ui/phone-input';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import { Select } from '@/components/ui/select';
 import {
   FormBlockWrapper,
@@ -170,11 +170,17 @@ export default function CreateInvoice({
                       name="createDate"
                       control={control}
                       render={({ field: { value, onChange } }) => (
-                        <DatePicker
-                          inputProps={{ label: 'Date Create' }}
-                          placeholderText="Select Date"
-                          selected={value}
+                        <DatePickerWrapper
+                          value={value}
                           onChange={onChange}
+                          dateFormat="MMM, yyyy"
+                          placeholderText="Select Month"
+                          showMonthYearPicker
+                          popperPlacement="bottom-end"
+                          inputProps={{
+                            variant: 'text',
+                            inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                          }}
                         />
                       )}
                     />
@@ -184,14 +190,17 @@ export default function CreateInvoice({
                       name="dueDate"
                       control={control}
                       render={({ field: { value, onChange } }) => (
-                        <DatePicker
-                          inputProps={{
-                            label: 'Due Date',
-                            error: errors?.dueDate?.message,
-                          }}
-                          placeholderText="Select Date"
-                          selected={value}
+                        <DatePickerWrapper
+                          value={value}
                           onChange={onChange}
+                          dateFormat="MMM, yyyy"
+                          placeholderText="Select Month"
+                          showMonthYearPicker
+                          popperPlacement="bottom-end"
+                          inputProps={{
+                            variant: 'text',
+                            inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                          }}
                         />
                       )}
                     />

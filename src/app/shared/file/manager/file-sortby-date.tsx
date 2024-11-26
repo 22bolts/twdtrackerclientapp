@@ -5,7 +5,7 @@ import { PiCaretDownBold, PiCaretRightBold } from 'react-icons/pi';
 import { Popover } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { useMedia } from '@/hooks/use-media';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import cn from '@/utils/class-names';
 import { Text } from '@/components/ui/text';
 
@@ -111,28 +111,42 @@ export default function FileSortbyDate() {
                   <Text as="span" className="mb-2 mt-2.5 block text-sm">
                     Start Date
                   </Text>
-                  <DatePicker
-                    selected={startDate}
-                    onChange={(date: Date) => setStartDate(date)}
-                    selectsStart
-                    startDate={startDate}
-                    endDate={endDate}
-                    placeholderText="Select Date"
-                    className=""
+                  <DatePickerWrapper
+                    value={startDate}
+                    onChange={(date: Date | [Date | null, Date | null] | null) => {
+                      if (date instanceof Date) {
+                        setStartDate(date); // Handle single date selection
+                      }
+                    }}
+                    dateFormat="MMM, yyyy"
+                    placeholderText="Select Month"
+                    showMonthYearPicker
+                    popperPlacement="bottom-end"
+                    inputProps={{
+                      variant: 'text',
+                      inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                    }}
                   />
                 </div>
                 <div>
                   <Text as="span" className="mb-2 block text-sm">
                     End Date
                   </Text>
-                  <DatePicker
-                    selected={endDate}
-                    onChange={(date: Date) => setEndDate(date)}
-                    selectsEnd
-                    startDate={startDate}
-                    endDate={endDate}
-                    minDate={startDate}
-                    placeholderText="Select Date"
+                  <DatePickerWrapper
+                    value={startDate}
+                    onChange={(date: Date | [Date | null, Date | null] | null) => {
+                      if (date instanceof Date) {
+                        setStartDate(date); // Handle single date selection
+                      }
+                    }}
+                    dateFormat="MMM, yyyy"
+                    placeholderText="Select Month"
+                    showMonthYearPicker
+                    popperPlacement="bottom-end"
+                    inputProps={{
+                      variant: 'text',
+                      inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                    }}
                   />
                 </div>
               </div>

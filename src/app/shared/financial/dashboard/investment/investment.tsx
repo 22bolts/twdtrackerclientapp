@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import cn from '@/utils/class-names';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import WidgetCard from '@/components/cards/widget-card';
 import { motion } from 'framer-motion';
 
@@ -224,9 +224,13 @@ export default function Investment({ className }: InvestmentProps) {
         className
       )}
       action={
-        <DatePicker
-          selected={startDate}
-          onChange={(date: Date) => handleChange(date)}
+        <DatePickerWrapper
+          value={startDate}
+          onChange={(date: Date | [Date | null, Date | null] | null) => {
+            if (date instanceof Date) {
+              setStartDate(date); // Handle single date selection
+            }
+          }}
           dateFormat="MMM, yyyy"
           placeholderText="Select Month"
           showMonthYearPicker

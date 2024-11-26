@@ -7,7 +7,7 @@ import { ActionIcon, Button, Input, Text, Textarea, Title } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { Form } from '@/components/ui/form';
 import toast from 'react-hot-toast';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import cn from '@/utils/class-names';
 import { CalendarEvent } from '@/types';
 import useEventCalendar from '@/hooks/use-event-calendar';
@@ -125,15 +125,18 @@ export default function EventForm({
                 name="startDate"
                 control={control}
                 render={({ field: { value, onChange } }) => (
-                  <DatePicker
-                    selected={value}
+                  <DatePickerWrapper
+                    value={value}
                     onChange={onChange}
-                    selectsStart
-                    startDate={value}
-                    endDate={endDate}
-                    minDate={new Date()}
-                    showTimeSelect
-                    dateFormat="MMMM d, yyyy h:mm aa"
+                    dateFormat="MMM, yyyy"
+                    placeholderText="Select Month"
+                    showMonthYearPicker
+                    popperPlacement="bottom-end"
+                    inputProps={{
+                      variant: 'text',
+                      inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                    }}
+                    className="w-36"
                   />
                 )}
               />
@@ -141,15 +144,18 @@ export default function EventForm({
                 name="endDate"
                 control={control}
                 render={({ field: { value, onChange } }) => (
-                  <DatePicker
-                    selected={value}
+                  <DatePickerWrapper
+                    value={value}
                     onChange={onChange}
-                    selectsEnd
-                    minDate={startDate}
-                    startDate={startDate}
-                    endDate={value}
-                    showTimeSelect
-                    dateFormat="MMMM d, yyyy h:mm aa"
+                    dateFormat="MMM, yyyy"
+                    placeholderText="Select Month"
+                    showMonthYearPicker
+                    popperPlacement="bottom-end"
+                    inputProps={{
+                      variant: 'text',
+                      inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                    }}
+                    className="w-36"
                   />
                 )}
               />

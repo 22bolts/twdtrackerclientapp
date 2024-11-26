@@ -16,7 +16,7 @@ import {
 } from 'recharts';
 import { useState } from 'react';
 import SimpleBar from '@/components/ui/simplebar';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 
 type DataType = {
   label: string;
@@ -131,15 +131,21 @@ export function DeliveryStatus({ className }: { className?: string }) {
       className={className}
       headerClassName="items-center"
       action={
-        <DatePicker
-          selected={startDate}
-          onChange={(date: Date) => setStartDate(date)}
-          dateFormat="yyyy"
-          placeholderText="Select Year"
-          showYearPicker
-          maxDate={new Date()}
-          inputProps={{ variant: 'text', inputClassName: 'p-0 px-1 h-auto' }}
+        <DatePickerWrapper
+          value={startDate}
+          onChange={(date: Date | [Date | null, Date | null] | null) => {
+            if (date instanceof Date) {
+              setStartDate(date); // Handle single date selection
+            }
+          }}
+          dateFormat="MMM, yyyy"
+          placeholderText="Select Month"
+          showMonthYearPicker
           popperPlacement="bottom-end"
+          inputProps={{
+            variant: 'text',
+            inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+          }}
           className="w-[100px]"
         />
       }

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Tab } from '@/components/ui/tabs';
 import cn from '@/utils/class-names';
 import ExchangeIcon from '@/components/icons/exchange';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import { IoSearchOutline } from 'react-icons/io5';
 import { Form } from '@/components/ui/form';
 import { Controller } from 'react-hook-form';
@@ -158,12 +158,17 @@ function OneWayFilter({ state }: any) {
                     name="startDate"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <DatePicker
-                        inputProps={{ label: 'Journey Date' }}
-                        placeholderText="Select Date"
-                        selected={value}
-                        minDate={new Date()}
+                      <DatePickerWrapper
+                        value={value}
                         onChange={onChange}
+                        dateFormat="MMM, yyyy"
+                        placeholderText="Select Month"
+                        showMonthYearPicker
+                        popperPlacement="bottom-end"
+                        inputProps={{
+                          variant: 'text',
+                          inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                        }}
                         className="text-left text-gray-900"
                       />
                     )}
@@ -176,7 +181,6 @@ function OneWayFilter({ state }: any) {
                 render={({ field: { onChange, value } }) => (
                   <PersonSelect
                     // FIXME: This is not working
-                    // @ts-expect-error - Suppressing type check due to complex type inference
                     defaultSelected={value}
                     onChange={onChange}
                   />
@@ -297,14 +301,16 @@ function RoundWayFilter({ state }: any) {
                     name="startDate"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <DatePicker
-                        minDate={new Date()}
-                        inputProps={{ label: 'Journey Date' }}
-                        placeholderText="Select Date"
-                        selected={value}
-                        onChange={(e: Date) => {
-                          setStartDate(e);
-                          onChange(e);
+                      <DatePickerWrapper
+                        value={value}
+                        onChange={onChange}
+                        dateFormat="MMM, yyyy"
+                        placeholderText="Select Month"
+                        showMonthYearPicker
+                        popperPlacement="bottom-end"
+                        inputProps={{
+                          variant: 'text',
+                          inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
                         }}
                         className="text-left text-gray-900"
                       />
@@ -316,17 +322,17 @@ function RoundWayFilter({ state }: any) {
                     name="endDate"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <DatePicker
-                        disabled={!getValues('startDate')}
-                        minDate={
-                          getValues('startDate')
-                            ? new Date(getValues('startDate'))
-                            : new Date()
-                        }
-                        inputProps={{ label: 'Return Date' }}
-                        placeholderText="Select Date"
-                        selected={value}
+                      <DatePickerWrapper
+                        value={value}
                         onChange={onChange}
+                        dateFormat="MMM, yyyy"
+                        placeholderText="Select Month"
+                        showMonthYearPicker
+                        popperPlacement="bottom-end"
+                        inputProps={{
+                          variant: 'text',
+                          inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+                        }}
                         className="text-left text-gray-900"
                       />
                     )}
@@ -339,7 +345,6 @@ function RoundWayFilter({ state }: any) {
                 render={({ field: { onChange, value } }) => (
                   <PersonSelect
                     // FIXME: This is not working
-                    // @ts-expect-error - Suppressing type check due to complex type inference
                     defaultSelected={value}
                     onChange={onChange}
                   />

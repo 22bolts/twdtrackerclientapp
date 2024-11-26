@@ -40,6 +40,10 @@ function CardExpired({ isMask = false, ...props }: CardExpiredType) {
         month = '12';
       }
     }
+    if (!format) {
+      console.warn('Format function is undefined');
+      return `${month}/${year}`;
+    }
     return isMask ? format(`${month}${year}`) : `${month}/${year}`;
   };
   return <NumberInput {...props} format={_format} />;

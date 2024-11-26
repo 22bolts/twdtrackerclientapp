@@ -10,7 +10,7 @@ export const sendOrderConfirmationEmail = async (data: { email: string }) => {
   sendEmail({
     to: to,
     subject: 'Your Order is Confirmed! - Isomorphic',
-    html: render(OrderConfirmationEmail()),
+    html: await render(OrderConfirmationEmail()),
   });
 
   return true;

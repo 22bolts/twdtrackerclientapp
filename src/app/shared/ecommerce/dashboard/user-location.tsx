@@ -5,7 +5,7 @@ import WorldMap from 'react-svg-worldmap';
 import WidgetCard from '@/components/cards/widget-card';
 import { Title, Text } from '@/components/ui/text';
 import { Badge } from '@/components/ui/badge';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import { useElementSize } from '@/hooks/use-element-size';
 import cn from '@/utils/class-names';
 
@@ -25,9 +25,13 @@ export default function UserLocation({ className }: { className?: string }) {
     <WidgetCard
       title={'User Location'}
       action={
-        <DatePicker
-          selected={startDate}
-          onChange={(date: Date) => setStartDate(date)}
+        <DatePickerWrapper
+          value={startDate}
+          onChange={(date: Date | [Date | null, Date | null] | null) => {
+            if (date instanceof Date) {
+              setStartDate(date); // Handle single date selection
+            }
+          }}
           dateFormat="MMM, yyyy"
           placeholderText="Select Month"
           showMonthYearPicker

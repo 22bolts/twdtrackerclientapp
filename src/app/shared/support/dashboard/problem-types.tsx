@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { useState } from 'react';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import WidgetCard from '@/components/cards/widget-card';
 import { CustomTooltip } from '@/components/charts/custom-tooltip';
 
@@ -45,16 +45,8 @@ const data = [
 ];
 
 export default function ProblemTypes({ className }: { className?: string }) {
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
-
-  const handleChange = ([newStartDate, newEndDate]: [
-    Date | null,
-    Date | null,
-  ]) => {
-    setStartDate(newStartDate);
-    setEndDate(newEndDate);
-  };
 
   return (
     <WidgetCard
@@ -65,23 +57,22 @@ export default function ProblemTypes({ className }: { className?: string }) {
       description={
         <div className="flex items-center gap-2">
           <span>Show data: </span>
-          <DatePicker
-            dateFormat="yyyy"
-            placeholderText="Select Year"
-            maxDate={new Date()}
+          <DatePickerWrapper
+            value={startDate}
+            onChange={(date: Date | [Date | null, Date | null] | null) => {
+              if (date instanceof Date) {
+                setStartDate(date); // Handle single date selection
+              }
+            }}
+            dateFormat="MMM, yyyy"
+            placeholderText="Select Month"
+            showMonthYearPicker
+            popperPlacement="bottom-end"
             inputProps={{
               variant: 'text',
-              inputClassName: 'p-0 pr-1.5 h-auto',
-              prefixClassName: 'hidden',
+              inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
             }}
-            popperPlacement="bottom-end"
             className="w-32"
-            selected={startDate}
-            onChange={handleChange}
-            selectsRange
-            startDate={startDate}
-            endDate={endDate}
-            showYearPicker
           />
         </div>
       }

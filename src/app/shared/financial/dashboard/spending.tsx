@@ -2,7 +2,7 @@
 
 import WidgetCard from '@/components/cards/widget-card';
 import TrendingUpIcon from '@/components/icons/trending-up';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import { Title } from '@/components/ui/text';
 import cn from '@/utils/class-names';
 import { useCallback, useState } from 'react';
@@ -57,9 +57,13 @@ export default function Spending({ className }: { className?: string }) {
       headerClassName="items-center"
       className={cn('@container', className)}
       action={
-        <DatePicker
-          selected={startDate}
-          onChange={(date: Date) => setStartDate(date)}
+        <DatePickerWrapper
+          value={startDate}
+          onChange={(date: Date | [Date | null, Date | null] | null) => {
+            if (date instanceof Date) {
+              setStartDate(date); // Handle single date selection
+            }
+          }}
           dateFormat="MMM, yyyy"
           placeholderText="Select Month"
           showMonthYearPicker

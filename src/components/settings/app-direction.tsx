@@ -15,7 +15,6 @@ export default function AppDirection() {
     <DrawerBlock title="Direction">
       <RadioGroup
         value={direction ?? 'ltr'}
-        // @ts-expect-error - Suppressing type check due to complex type inference
         setValue={setDirection}
         className="grid grid-cols-2 gap-4"
       >

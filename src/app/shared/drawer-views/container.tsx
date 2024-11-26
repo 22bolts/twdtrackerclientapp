@@ -18,7 +18,7 @@ export default function GlobalDrawer() {
       isOpen={isOpen}
       onClose={closeDrawer}
       placement={placement}
-      customSize={customSize}
+      customSize={typeof customSize === 'string' ? Number(customSize) : customSize}
       overlayClassName="dark:bg-opacity-40 dark:backdrop-blur-md"
       containerClassName="dark:bg-gray-100"
       className="z-[9999]"

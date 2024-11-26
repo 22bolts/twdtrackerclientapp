@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import WidgetCard from '@/components/cards/widget-card';
 import {
   RadialBarChart,
@@ -46,9 +46,13 @@ export default function PromotionalSales({
     <WidgetCard
       title={'Promotional Sales'}
       action={
-        <DatePicker
-          selected={startDate}
-          onChange={(date: Date) => setStartDate(date)}
+        <DatePickerWrapper
+          value={startDate}
+          onChange={(date: Date | [Date | null, Date | null] | null) => {
+            if (date instanceof Date) {
+              setStartDate(date); // Handle single date selection
+            }
+          }}
           dateFormat="MMM, yyyy"
           placeholderText="Select Month"
           showMonthYearPicker

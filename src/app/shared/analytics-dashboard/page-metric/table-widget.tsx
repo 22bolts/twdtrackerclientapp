@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import ButtonGroupAction from '@/components/charts/button-group-action';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import cn from '@/utils/class-names';
 import Table from '@/components/ui/table';
 import Pagination from '@/components/ui/pagination';
@@ -71,9 +71,13 @@ export default function PageMetrics({
         </Title>
 
         <div>
-          <DatePicker
-            selected={startDate}
-            onChange={(date: Date) => setStartDate(date)}
+          <DatePickerWrapper
+            value={startDate}
+            onChange={(date: Date | [Date | null, Date | null] | null) => {
+              if (date instanceof Date) {
+                setStartDate(date); // Handle single date selection
+              }
+            }}
             dateFormat="MMM, yyyy"
             placeholderText="Select Month"
             showMonthYearPicker

@@ -1,24 +1,41 @@
 'use client';
 
-import { DatePicker, DatePickerProps } from '@/components/ui/datepicker';
+import React from 'react';
+import { DatePickerWrapper, CustomDatePickerProps } from '@/components/ui/datepicker';
 
 export default function DateFiled({
-  onClear,
+  selected,
+  startDate,
+  endDate,
+  onChange,
   placeholderText = 'Select date',
   inputProps,
   ...props
-}: DatePickerProps<any> & { onClear?: () => void }) {
+}: CustomDatePickerProps & {
+  selected?: Date;
+  startDate?: Date | null;
+  endDate?: Date | null;
+  onChange?: (date: Date | [Date | null, Date | null] | null) => void;
+}) {
   return (
     <div>
-      <DatePicker
-        monthsShown={1}
+      <DatePickerWrapper
+        value={startDate && endDate ? [startDate, endDate] : selected}
+        onChange={(date: Date | [Date | null, Date | null] | null) => {
+          if (onChange) {
+            onChange(date);
+          }
+        }}
+        selectsRange={!!startDate && !!endDate}
         placeholderText={placeholderText}
-        selectsRange
+        dateFormat="MMM dd, yyyy"
+        popperPlacement="bottom-end"
         inputProps={{
-          inputClassName: 'h-9 [&_input]:text-ellipsis',
+          variant: 'text',
+          inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
           ...inputProps,
         }}
-        className="w-72"
+        className="w-36"
         {...props}
       />
     </div>

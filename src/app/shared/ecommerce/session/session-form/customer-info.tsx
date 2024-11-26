@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Controller, useFormContext } from 'react-hook-form';
 import { ActionIcon } from '@/components/ui/action-icon';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import PencilIcon from '@/components/icons/pencil';
 import { Text, Title } from '@/components/ui/text';
 import { Select } from '@/components/ui/select';
@@ -112,17 +112,18 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
             name="orderDate"
             control={control}
             render={({ field: { value, onChange, onBlur } }) => (
-              <DatePicker
-                inputProps={{ label: 'Order date' }}
-                placeholderText="Select Date"
-                dateFormat="dd/MM/yyyy"
-                onChange={(date: Date | null) => {
-                  // Ensure a valid date is passed
-                  onChange(date);
+              <DatePickerWrapper
+                value={value}
+                onChange={onChange}
+                dateFormat="MMM, yyyy"
+                placeholderText="Select Month"
+                showMonthYearPicker
+                popperPlacement="bottom-end"
+                inputProps={{
+                  variant: 'text',
+                  inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
                 }}
-                onBlur={onBlur}
-                wrapperClassName="w-full"
-                selected={value instanceof Date ? value : null}
+                className="w-36"
               />
             )}
           />

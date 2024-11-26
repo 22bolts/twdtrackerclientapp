@@ -189,7 +189,6 @@ export default function StepTwo() {
                 render={({ field: { value, onChange } }) => (
                   <CheckboxGroup
                     // TODO: needed to be fixed
-                    // @ts-expect-error - Suppressing type check due to complex type inference
                     values={value}
                     setValues={onChange}
                     className="col-span-full grid grid-cols-2 gap-4 @3xl:grid-cols-3 @4xl:gap-6 @7xl:grid-cols-4"

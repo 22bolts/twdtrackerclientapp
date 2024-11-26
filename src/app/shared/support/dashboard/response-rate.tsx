@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import WidgetCard from '@/components/cards/widget-card';
-import { DatePicker } from '@/components/ui/datepicker';
+import { DatePickerWrapper } from '@/components/ui/datepicker';
 import {
   XAxis,
   YAxis,
@@ -100,16 +100,22 @@ export default function ResponseRate({ className }: { className?: string }) {
       }
       descriptionClassName="text-gray-500 mt-1.5 flex flex-col md:flex-row items-center gap-2"
       action={
-        <DatePicker
-          selected={startDate}
-          onChange={(date: Date) => setStartDate(date)}
-          dateFormat="yyyy"
-          placeholderText="Select Year"
-          showYearPicker
-          maxDate={new Date()}
-          inputProps={{ variant: 'text', inputClassName: 'p-0 px-1 h-auto' }}
+        <DatePickerWrapper
+          value={startDate}
+          onChange={(date: Date | [Date | null, Date | null] | null) => {
+            if (date instanceof Date) {
+              setStartDate(date); // Handle single date selection
+            }
+          }}
+          dateFormat="MMM, yyyy"
+          placeholderText="Select Month"
+          showMonthYearPicker
           popperPlacement="bottom-end"
-          className="w-[100px]"
+          inputProps={{
+            variant: 'text',
+            inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+          }}
+          className="w-32"
         />
       }
     >

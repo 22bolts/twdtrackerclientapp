@@ -26,7 +26,6 @@ export function useScrollableSlider() {
     );
     initNextPrevBtnVisibility();
 
-    // @ts-expect-error - Suppressing type check due to complex type inference
     function initNextPrevBtnVisibility() {
       let offsetWidth = filterBarEl.offsetWidth;
       let scrollWidth = filterBarEl.scrollWidth;

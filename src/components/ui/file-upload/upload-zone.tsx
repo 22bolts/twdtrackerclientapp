@@ -6,7 +6,6 @@ import isEmpty from 'lodash/isEmpty';
 import prettyBytes from 'pretty-bytes';
 import { useCallback, useState } from 'react';
 // import type { FileWithPath } from '@uploadthing/react';
-import { useDropzone } from '@uploadthing/react/hooks';
 import { PiCheckBold, PiTrashBold, PiUploadSimpleBold } from 'react-icons/pi';
 import {
   // UploadFileResponse,
@@ -80,7 +79,7 @@ export default function UploadZone({
       )
   );
 
-  const { startUpload, permittedFileInfo, isUploading } = useUploadThing(
+  const { startUpload, isUploading } = useUploadThing(
     'generalMedia',
     {
       // onClientUploadComplete: (res: UploadFileResponse<any>[] | undefined) => {
@@ -108,9 +107,9 @@ export default function UploadZone({
     }
   );
 
-  const fileTypes = permittedFileInfo?.config
-    ? Object.keys(permittedFileInfo?.config)
-    : [];
+  // const fileTypes = permittedFileInfo?.config
+  //   ? Object.keys(permittedFileInfo?.config)
+  //   : [];
 
   // const { getRootProps, getInputProps } = useDropzone({
   //   onDrop,

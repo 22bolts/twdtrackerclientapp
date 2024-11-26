@@ -100,6 +100,10 @@ export function BillingForm({ register, control, errors }: any) {
           month = '12';
         }
       }
+      if (!format) {
+        console.warn('Format function is undefined');
+        return `${month}/${year}`;
+      }
       return isMask ? format(`${month}${year}`) : `${month}/${year}`;
     };
     return <NumberInput {...props} format={_format} />;
@@ -115,26 +119,28 @@ export function BillingForm({ register, control, errors }: any) {
         {...register('cardHolder')}
         error={errors?.cardHolder?.message}
       />
-      <Controller
-        name="cardNumber"
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <NumberInput
-            formatType="pattern"
-            format="#### #### #### ####"
-            value={value}
-            mask="_"
-            customInput={Input as React.ComponentType<unknown>}
-            onChange={onChange}
-            {...{
-              label: 'Card Number',
-              variant: 'outline',
-              labelClassName: 'text-sm font-medium text-gray-900',
-              error: errors?.cardNumber?.message,
-            }}
-          />
-        )}
-      />
+      {control && (
+        <Controller
+          name="cardNumber"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <NumberInput
+              formatType="pattern"
+              format="#### #### #### ####"
+              value={value}
+              mask="_"
+              customInput={Input as React.ComponentType<unknown>}
+              onChange={onChange}
+              {...{
+                label: 'Card Number',
+                variant: 'outline',
+                labelClassName: 'text-sm font-medium text-gray-900',
+                error: errors?.cardNumber?.message,
+              }}
+            />
+          )}
+        />
+      )}
       <div className="grid grid-cols-2 gap-2">
         <Controller
           name="expiryDate"
