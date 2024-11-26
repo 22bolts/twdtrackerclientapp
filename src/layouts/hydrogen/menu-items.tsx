@@ -37,7 +37,6 @@ import {
   PiBriefcaseDuotone,
   PiHouseLineDuotone,
   PiAirplaneTiltDuotone,
-  PiFolderNotchDuotone,
   PiCaretCircleUpDownDuotone,
   PiListNumbersDuotone,
   PiCoinDuotone,

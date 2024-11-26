@@ -36,7 +36,6 @@ import {
   PiHouseLine,
   PiAirplaneTilt,
   PiPokerChip,
-  PiFolderNotch,
   PiListNumbers,
   PiCaretCircleUpDown,
   PiBriefcase,
