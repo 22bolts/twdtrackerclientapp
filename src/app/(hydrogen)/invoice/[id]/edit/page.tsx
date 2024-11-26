@@ -7,17 +7,8 @@ import ImportButton from '@/app/shared/import-button';
 import { metaObject } from '@/config/site.config';
 import { Metadata } from 'next';
 
-// Define a consistent type for params
-type InvoiceParams = {
-  id: string;
-};
-
-/**
- * for dynamic metadata
- * @link: https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
- */
-export async function generateMetadata({ params }: { params: InvoiceParams }): Promise<Metadata> {
-  // read route params
+// Correct type for params
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const id = params.id;
   return metaObject(`Edit ${id}`);
 }
@@ -69,7 +60,7 @@ const invoiceData = {
   ],
 };
 
-export default function InvoiceEditPage({ params }: { params: InvoiceParams }) {
+export default function InvoiceEditPage({ params }: { params: { id: string } }) {
   console.log('Invoice Edit Page ID', params.id);
   return (
     <>
