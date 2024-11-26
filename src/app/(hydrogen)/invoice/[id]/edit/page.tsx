@@ -7,8 +7,7 @@ import ImportButton from '@/app/shared/import-button';
 import { metaObject } from '@/config/site.config';
 import { Metadata } from 'next';
 
-// Correct type for params
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
   const id = params.id;
   return metaObject(`Edit ${id}`);
 }
@@ -60,7 +59,7 @@ const invoiceData = {
   ],
 };
 
-export default function InvoiceEditPage({ params }: { params: { id: string } }) {
+export default function InvoiceEditPage({ params }: { params: any }) {
   console.log('Invoice Edit Page ID', params.id);
   return (
     <>
