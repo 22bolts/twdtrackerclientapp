@@ -43,7 +43,7 @@ export default function BasicTablePage() {
           variant="classic"
           title="Classic Table"
           data={orderData}
-          // @ts-ignore
+          // @ts-expect-error - Suppressing type check due to complex type inference
           getColumns={getOrderColumns}
           enableSearch={false}
         />
@@ -52,7 +52,7 @@ export default function BasicTablePage() {
           title="Modern Table"
           variant="modern"
           data={productsData}
-          // @ts-ignore
+          // @ts-expect-error - Suppressing type check due to complex type inference
           getColumns={getProductColumns}
           enableSearch={false}
           className="[&_.rc-table-content_table_tbody_tr:last-child_td]:border-0"
@@ -62,7 +62,7 @@ export default function BasicTablePage() {
           title="Minimal Table"
           variant="minimal"
           data={invoiceData}
-          // @ts-ignore
+          // @ts-expect-error - Suppressing type check due to complex type inference
           getColumns={getColumns}
           enableSearch={false}
         />
@@ -71,7 +71,7 @@ export default function BasicTablePage() {
           title="Elegant Table"
           variant="elegant"
           data={productsData}
-          // @ts-ignore
+          // @ts-expect-error - Suppressing type check due to complex type inference
           getColumns={getProductColumns}
           enableSearch={false}
           className="[&_.rc-table-content_table_tbody_tr:last-child_td]:border-0"
@@ -81,7 +81,7 @@ export default function BasicTablePage() {
           variant="retro"
           title="Retro Table"
           data={orderData}
-          // @ts-ignore
+          // @ts-expect-error - Suppressing type check due to complex type inference
           getColumns={getOrderColumns}
           enableSearch={false}
           className="[&_.rc-table-content_table_tbody_tr:last-child_td]:border-0"

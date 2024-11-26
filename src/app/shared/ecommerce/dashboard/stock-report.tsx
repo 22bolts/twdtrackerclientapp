@@ -7,7 +7,7 @@ export default function StockReport({ className }: { className?: string }) {
     <BasicTableWidget
       title={'Stock Report'}
       data={productsData}
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       getColumns={getColumns}
       pageSize={6}
       enablePagination

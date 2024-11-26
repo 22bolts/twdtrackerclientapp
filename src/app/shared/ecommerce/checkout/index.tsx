@@ -86,7 +86,7 @@ export default function CheckoutPageWrapper({
   return (
     <FormProvider {...methods}>
       <form
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         onSubmit={methods.handleSubmit(onSubmit)}
         className={cn(
           'isomorphic-form isomorphic-form mx-auto flex w-full max-w-[1536px] flex-grow flex-col @container [&_label.block>span]:font-medium',

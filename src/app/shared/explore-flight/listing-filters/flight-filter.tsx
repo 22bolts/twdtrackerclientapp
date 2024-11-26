@@ -176,7 +176,7 @@ function OneWayFilter({ state }: any) {
                 render={({ field: { onChange, value } }) => (
                   <PersonSelect
                     // FIXME: This is not working
-                    // @ts-ignore
+                    // @ts-expect-error - Suppressing type check due to complex type inference
                     defaultSelected={value}
                     onChange={onChange}
                   />
@@ -339,7 +339,7 @@ function RoundWayFilter({ state }: any) {
                 render={({ field: { onChange, value } }) => (
                   <PersonSelect
                     // FIXME: This is not working
-                    // @ts-ignore
+                    // @ts-expect-error - Suppressing type check due to complex type inference
                     defaultSelected={value}
                     onChange={onChange}
                   />

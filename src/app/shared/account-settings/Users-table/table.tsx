@@ -77,7 +77,7 @@ export default function UsersTableV2({
       <ControlledTable
         isLoading={isLoading}
         data={tableData}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         columns={visibleColumns}
         variant="modern"
         rowKey={(record) => record.id}

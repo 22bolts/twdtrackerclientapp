@@ -143,7 +143,7 @@ export function useTable<T extends AnyObject>(
               ) {
                 const itemValue = new Date(item[columnId]);
                 return (
-                  // @ts-ignore
+                  // @ts-expect-error - Suppressing type check due to complex type inference
                   itemValue >= filterValue[0] && itemValue <= filterValue[1]
                 );
               }

@@ -95,7 +95,7 @@ export default function PageMetrics({
         <div className="-mx-5 lg:-mx-7">
           <Table
             data={tableData}
-            // @ts-ignore
+            // @ts-expect-error - Suppressing type check due to complex type inference
             columns={visibleColumns}
             scroll={{ x: 1300 }}
             variant="elegant"

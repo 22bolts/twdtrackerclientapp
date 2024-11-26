@@ -39,7 +39,7 @@ export default function PaginationTablePage() {
         noGutter
         variant="modern"
         data={productsData}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         getColumns={getColumns}
         enableSearch={false}
         enablePagination

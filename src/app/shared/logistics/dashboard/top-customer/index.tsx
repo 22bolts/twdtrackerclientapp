@@ -17,7 +17,7 @@ export default function TopCustomer({ className }: IndexProps) {
       title="Top Customer"
       className={cn(className)}
       data={topCustomers}
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       getColumns={getColumns}
       pageSize={isBigScreen ? 6 : 5}
       enablePagination

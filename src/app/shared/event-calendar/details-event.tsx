@@ -13,11 +13,12 @@ function DetailsEvents({ event }: { event: CalendarEvent }) {
   const { openModal, closeModal } = useModal();
 
   function handleEditModal() {
-    closeModal(),
-      openModal({
-        view: <EventForm event={event} />,
-        customSize: '650px',
-      });
+    // Instead of using comma operator, use sequential statements
+    closeModal();
+    openModal({
+      view: <EventForm event={event} />,
+      customSize: '650px',
+    });
   }
 
   function handleDelete(eventID: string) {

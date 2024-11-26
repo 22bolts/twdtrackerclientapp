@@ -91,7 +91,7 @@ export default function Timeline({
             hashSpy={true}
             smooth={true}
             duration={500}
-            // @ts-ignore
+            // @ts-expect-error - Suppressing type check due to complex type inference
             onClick={(e) => handleScrollPosition(e)}
             className="ms-10 mt-10 flex flex-grow cursor-pointer items-center gap-3 text-sm font-medium text-gray-900"
           >

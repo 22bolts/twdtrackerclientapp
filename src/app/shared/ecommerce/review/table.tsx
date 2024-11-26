@@ -77,7 +77,7 @@ export default function ReviewsTable() {
       isLoading={isLoading}
       showLoadingText={true}
       data={tableData}
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       columns={visibleColumns}
       paginatorOptions={{
         pageSize,

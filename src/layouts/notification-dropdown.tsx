@@ -110,7 +110,7 @@ function NotificationsList({
                     {item.name}
                   </Title>
                   <span className="ms-auto whitespace-nowrap pe-8 text-xs text-gray-500">
-                    {/* @ts-ignore */}
+                    {/* @ts-expect-error - Suppressing type check for external library type mismatch */}
                     {dayjs(item.sendTime).fromNow(true)}
                   </span>
                 </div>

@@ -7,7 +7,7 @@ export default function RecentCustomers({ className }: { className?: string }) {
     <BasicTableWidget
       title="Recent Customers"
       data={recentCustomers}
-      //@ts-ignore
+      //@ts-expect-error
       getColumns={getColumns}
       className={className}
       enablePagination

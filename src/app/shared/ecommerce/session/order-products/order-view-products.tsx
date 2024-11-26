@@ -69,7 +69,7 @@ export default function OrderViewProducts() {
   return (
     <Table
       data={items}
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       columns={columns}
       className="text-sm"
       variant="minimal"

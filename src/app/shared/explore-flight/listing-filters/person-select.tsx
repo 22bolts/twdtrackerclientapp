@@ -94,7 +94,7 @@ export default function PersonSelect({
               </div>
               <QuantityInput
                 // FIXME: This is not working
-                // @ts-ignore
+                // @ts-expect-error - Suppressing type check due to complex type inference
                 name={adults}
                 onChange={setAdults}
                 defaultValue={adults}
@@ -109,7 +109,7 @@ export default function PersonSelect({
               </div>
               <QuantityInput
                 // FIXME: This is not working
-                // @ts-ignore
+                // @ts-expect-error - Suppressing type check due to complex type inference
                 name={child}
                 onChange={setChild}
                 defaultValue={child}
@@ -124,7 +124,7 @@ export default function PersonSelect({
               </div>
               <QuantityInput
                 // FIXME: This is not working
-                // @ts-ignore
+                // @ts-expect-error - Suppressing type check due to complex type inference
                 name={infants}
                 onChange={setInfants}
                 defaultValue={infants}

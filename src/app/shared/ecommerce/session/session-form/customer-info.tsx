@@ -119,7 +119,7 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
                 onChange={onChange}
                 onBlur={onBlur}
                 wrapperClassName="w-full"
-                //@ts-ignore
+                //@ts-expect-error
                 selected={value}
               />
             )}

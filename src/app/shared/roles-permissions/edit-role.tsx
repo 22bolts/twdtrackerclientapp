@@ -80,7 +80,7 @@ export default function EditRole() {
                       {label}
                     </Title>
                     <Controller
-                      // @ts-ignore
+                      // @ts-expect-error - Suppressing type check due to complex type inference
                       name={value.toLowerCase()}
                       control={control}
                       render={({ field: { onChange, value } }) => (

@@ -7,7 +7,7 @@ export default function RecentOrder({ className }: { className?: string }) {
     <BasicTableWidget
       title={'Recent Order'}
       data={orderData}
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       getColumns={getWidgetColumns}
       className={className}
       enablePagination

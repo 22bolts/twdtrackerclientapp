@@ -1,6 +1,9 @@
 import { CartItem as Item } from '@/types';
 
-export interface UpdateItemInput extends Partial<Omit<Item, 'id'>> {}
+export interface UpdateItemInput extends Partial<Omit<Item, 'id'>> {
+  // You can add a dummy property to make the interface non-empty
+  __marker?: never;
+}
 
 export function addItemWithQuantity(
   items: Item[],

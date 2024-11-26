@@ -96,7 +96,7 @@ export default function UsersTable({ data = [] }: { data: any[] }) {
         data={tableData}
         isLoading={isLoading}
         showLoadingText={true}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         columns={visibleColumns}
         paginatorOptions={{
           pageSize,

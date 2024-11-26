@@ -126,7 +126,7 @@ export default function ShipmentListTable() {
         scroll={{
           x: 1800,
         }}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         columns={visibleColumns}
         paginatorOptions={{
           pageSize,

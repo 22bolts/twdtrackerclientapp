@@ -87,7 +87,7 @@ export default function CreateOrder({
   return (
     <FormProvider {...methods}>
       <form
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         onSubmit={methods.handleSubmit(onSubmit)}
         className={cn(
           'isomorphic-form flex flex-grow flex-col @container [&_label.block>span]:font-medium',

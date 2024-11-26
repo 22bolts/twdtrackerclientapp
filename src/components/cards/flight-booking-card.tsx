@@ -123,11 +123,11 @@ function AccordionContent({ flight }: ContentProps) {
               rounded="md"
               variant="flat"
               // FIXME: Need to fixed this type error
-              // @ts-ignore
+              // @ts-expect-error - Suppressing type check due to complex type inference
               color={badgeStyle[flight.class].color}
               className={cn(
                 'hidden px-3.5 py-1 sm:block',
-                // @ts-ignore
+                // @ts-expect-error - Suppressing type check due to complex type inference
                 badgeStyle[flight.class].className
               )}
             >

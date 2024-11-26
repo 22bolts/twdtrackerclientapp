@@ -9,7 +9,7 @@ export default function SessionList({ className }: { className?: string }) {
     <BasicTableWidget
       title={'All sessions'}
       data={gymData}
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       getColumns={getWidgetColumns}
       className={className}
       enablePagination

@@ -71,7 +71,7 @@ export default function SnippetsTable() {
       isLoading={isLoading}
       showLoadingText={true}
       data={tableData}
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       columns={visibleColumns}
       filterOptions={{
         searchTerm,

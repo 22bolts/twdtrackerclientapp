@@ -160,9 +160,9 @@ export const PhoneNumber = ({
         buttonClass={cn(
           buttonClasses.base,
           buttonClasses.size[size],
-          // @ts-ignore
+          // @ts-expect-error - Suppressing type check due to complex type inference
           props.inputProps?.disabled && 'pointer-events-none',
-          // @ts-ignore
+          // @ts-expect-error - Suppressing type check due to complex type inference
           props.inputProps?.readOnly && 'pointer-events-none',
           buttonClassName
         )}

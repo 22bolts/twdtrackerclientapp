@@ -38,7 +38,7 @@ export default function StickyTablePage() {
         title="Sticky Header"
         variant="minimal"
         data={orderData}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         getColumns={getWidgetColumns}
         enableSearch={false}
         sticky

@@ -156,7 +156,7 @@ export function MemberForm({ register, control, errors }: any) {
           <Select
             label="Role"
             labelClassName="text-sm font-medium text-gray-900"
-            // @ts-ignore
+            // @ts-expect-error - Suppressing type check due to complex type inference
             placeholder={role[0].name}
             options={role}
             onChange={onChange}
@@ -176,7 +176,7 @@ export function MemberForm({ register, control, errors }: any) {
           <Select
             label="Country"
             labelClassName="text-sm font-medium text-gray-900"
-            // @ts-ignore
+            // @ts-expect-error - Suppressing type check due to complex type inference
             placeholder={countries[0].name}
             options={countries}
             onChange={onChange}

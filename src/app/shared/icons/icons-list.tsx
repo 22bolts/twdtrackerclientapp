@@ -80,7 +80,7 @@ function PageHeaderWithSearch({
   const inputRef = useRef(null);
   useEffect(() => {
     if (inputRef?.current) {
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       inputRef.current.focus();
     }
     return () => {

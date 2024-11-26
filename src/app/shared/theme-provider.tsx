@@ -6,7 +6,7 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes';
 
 hideRechartsConsoleError();
 
-export function ThemeProvider({ children }: React.PropsWithChildren<{}>) {
+export function ThemeProvider({ children }: React.PropsWithChildren<object>) {
   return (
     <NextThemeProvider
       enableSystem={false}

@@ -37,7 +37,7 @@ export default function AddressInfo({
         label="Customer Name"
         placeholder="Customer name"
         {...register(`${type}.customerName`)}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         error={errors?.[type]?.customerName?.message as any}
       />
       <Controller
@@ -49,7 +49,7 @@ export default function AddressInfo({
             country="us"
             value={value}
             onChange={onChange}
-            // @ts-ignore
+            // @ts-expect-error - Suppressing type check due to complex type inference
             error={errors?.[type]?.phoneNumber?.message as string}
           />
         )}
@@ -58,28 +58,28 @@ export default function AddressInfo({
         label="Country"
         placeholder="Country"
         {...register(`${type}.country`)}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         error={errors?.[type]?.country?.message as string}
       />
       <Input
         label="State"
         placeholder="State"
         {...register(`${type}.state`)}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         error={errors?.[type]?.state?.message as string}
       />
       <Input
         label="City"
         placeholder="City"
         {...register(`${type}.city`)}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         error={errors?.[type]?.city?.message as string}
       />
       <Input
         label="ZIP / Postcode"
         placeholder="ZIP / postcode"
         {...register(`${type}.zip`)}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         error={errors?.[type]?.zip?.message as string}
       />
       <Input
@@ -87,7 +87,7 @@ export default function AddressInfo({
         placeholder="Street Address"
         className="col-span-full"
         {...register(`${type}.street`)}
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         error={errors?.[type]?.street?.message as string}
       />
     </div>

@@ -32,7 +32,7 @@ export default function SearchList({ onClose }: { onClose?: () => void }) {
 
   useEffect(() => {
     if (inputRef?.current) {
-      // @ts-ignore
+      // @ts-expect-error - Suppressing type check due to complex type inference
       inputRef.current.focus();
     }
     return () => {

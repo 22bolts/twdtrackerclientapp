@@ -128,7 +128,7 @@ export const getColumns = () => [
     width: 200,
     render: (status: string) => {
       return (
-        // @ts-ignore
+        // @ts-expect-error - Suppressing type check due to complex type inference
         <Badge color={statusColors[status]} rounded="md">
           {status}
         </Badge>
