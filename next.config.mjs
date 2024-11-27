@@ -22,6 +22,10 @@ const nextConfig = {
       'img.freepik.com',
     ],
   },
+  env: {
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL
+  },
   reactStrictMode: false,
 };
 
