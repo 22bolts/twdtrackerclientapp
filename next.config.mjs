@@ -30,3 +30,14 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+
+
+
+
+
+
+
+
+
+// ${{ secrets.NEXTAUTH_SECRET }}
