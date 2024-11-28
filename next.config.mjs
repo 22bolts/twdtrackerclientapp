@@ -47,6 +47,7 @@
 
 /** @type {import('next').NextConfig} */
 import path from 'path';
+
 const nextConfig = {
   webpack: (config, { isServer }) => {
     config.resolve.alias['@'] = path.resolve('./src');
@@ -70,10 +71,10 @@ const nextConfig = {
   },
   env: {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   },
-  output: 'export', // Add this line
-  trailingSlash: true, // Add this line
+  output: 'standalone', // Standalone mode for dynamic features
   reactStrictMode: false,
 };
+
 export default nextConfig;
