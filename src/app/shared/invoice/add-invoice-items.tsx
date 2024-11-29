@@ -205,13 +205,13 @@ export function AddInvoiceItems({ watch, register, control, errors }: any) {
             <div className="grid grid-cols-3 gap-3 lg:gap-4">
               <Input
                 type="number"
-                label="Shipping"
+                label="Sessions Purchasing"
                 prefix={'$'}
                 placeholder="10"
-                {...register('shipping')}
-                error={errors.shipping?.message}
+                {...register('sessionspurchase')}
+                error={errors.sessionspurchase?.message}
               />
-              <Input
+              {/* <Input
                 type="number"
                 label="Discount"
                 prefix={'$'}
@@ -226,11 +226,23 @@ export function AddInvoiceItems({ watch, register, control, errors }: any) {
                 placeholder="15"
                 {...register('taxes')}
                 error={errors.taxes?.message}
-              />
+              /> */}
             </div>
 
             <div className="ms-auto mt-6 grid w-full gap-3.5 text-sm text-gray-600 @xl:max-w-xs">
               <Text className="flex items-center justify-between">
+                Session cost:{' '}
+                <Text as="span" className="font-medium text-red">
+                  {shippingCost ? `$${shippingCost}` : '--'}
+                </Text>
+              </Text>
+              <Text className="flex items-center justify-between">
+                Sessions Purchasing
+                <Text as="span" className="font-medium text-red">
+                  {shippingCost ? `${shippingCost}` : '--'}
+                </Text>
+              </Text>
+              {/* <Text className="flex items-center justify-between">
                 Subtotal:{' '}
                 <Text as="span" className="font-medium text-gray-700">
                   ${calculateSubTotal()}
@@ -253,7 +265,7 @@ export function AddInvoiceItems({ watch, register, control, errors }: any) {
                 <Text as="span" className="font-medium text-red">
                   {taxes ? `${taxes}%` : '--'}
                 </Text>
-              </Text>
+              </Text> */}
               <Text className="flex items-center justify-between text-base font-semibold text-gray-900">
                 Total:{' '}
                 <Text as="span">

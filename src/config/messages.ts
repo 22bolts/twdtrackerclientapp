@@ -33,6 +33,7 @@ export const messages = {
   retailPriceIsRequired: 'Retail price is required',
   salePriceIsRequired: 'Sale price is required',
   shippingPriceIsRequired: 'Shipping price is required',
+  sessionsPurchaseIsRequired: 'Shipping price is required',
   cityIsRequired: 'City is required',
   stateIsRequired: 'State is required',
   countryIsRequired: 'Country is required',

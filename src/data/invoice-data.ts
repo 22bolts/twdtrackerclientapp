@@ -4,7 +4,7 @@ export type Invoice = {
   userName: string;
   avatar: string;
   email: string;
-  dueDate: string;
+  session: number;
   amount: string;
   status: string;
   createdAt: Date;
@@ -18,7 +18,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-01.webp',
     email: 'Maryam.Barrows@yahoo.com',
-    dueDate: '2023-10-18T13:24:00.760Z',
+    session: 10,
     amount: '544.00',
     status: 'Paid',
     createdAt: '2023-01-14T20:37:08.482Z',
@@ -30,7 +30,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-02.webp',
     email: 'Mason_Davis4@yahoo.com',
-    dueDate: '2023-07-18T01:06:16.095Z',
+    session: 11,
     amount: '560.00',
     status: 'Pending',
     createdAt: '2023-02-13T22:59:20.038Z',
@@ -42,7 +42,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-03.webp',
     email: 'Jayda_Schiller35@yahoo.com',
-    dueDate: '2024-12-18T15:32:21.317Z',
+    session: 5,
     amount: '249.00',
     status: 'Pending',
     createdAt: '2022-11-30T06:51:47.972Z',
@@ -54,7 +54,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-04.webp',
     email: 'Retha.Lehner47@hotmail.com',
-    dueDate: '2024-06-30T19:06:03.018Z',
+    session: 5,
     amount: '255.00',
     status: 'Draft',
     createdAt: '2022-10-20T05:20:29.297Z',
@@ -66,7 +66,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-05.webp',
     email: 'Guiseppe.Champlin@hotmail.com',
-    dueDate: '2025-07-24T18:45:02.179Z',
+    session: 8,
     amount: '329.00',
     status: 'Paid',
     createdAt: '2022-11-30T06:45:34.713Z',
@@ -78,7 +78,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-06.webp',
     email: 'Simeon93@yahoo.com',
-    dueDate: '2023-11-02T00:20:47.253Z',
+    session: 9,
     amount: '402.00',
     status: 'Paid',
     createdAt: '2023-07-08T15:25:40.000Z',
@@ -90,9 +90,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-07.webp',
     email: 'Frieda_Renner@gmail.com',
-    dueDate: '2024-01-03T02:53:29.596Z',
+    session: 15,
     amount: '977.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2023-05-14T07:04:31.296Z',
   },
   {
@@ -102,7 +102,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-15.webp',
     email: 'Cleora.Murray@hotmail.com',
-    dueDate: '2025-01-23T08:52:39.081Z',
+    session: 14,
     amount: '736.00',
     status: 'Paid',
     createdAt: '2023-07-13T13:18:55.586Z',
@@ -114,7 +114,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-14.webp',
     email: 'Bernard63@yahoo.com',
-    dueDate: '2024-07-29T18:18:19.193Z',
+    session: 14,
     amount: '755.00',
     status: 'Draft',
     createdAt: '2023-01-25T12:41:04.758Z',
@@ -126,7 +126,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-13.webp',
     email: 'Wava.Muller47@gmail.com',
-    dueDate: '2023-05-04T04:33:47.908Z',
+    session: 6,
     amount: '240.00',
     status: 'Draft',
     createdAt: '2022-10-10T12:07:33.682Z',
@@ -138,9 +138,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-12.webp',
     email: 'Gene73@yahoo.com',
-    dueDate: '2025-04-16T11:49:15.276Z',
+    session: 17,
     amount: '852.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2022-12-03T22:33:54.282Z',
   },
   {
@@ -150,7 +150,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-11.webp',
     email: 'Virgil.Skiles@hotmail.com',
-    dueDate: '2024-05-28T04:44:49.629Z',
+    session: 4,
     amount: '295.00',
     status: 'Draft',
     createdAt: '2022-10-01T19:58:38.952Z',
@@ -162,7 +162,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-10.webp',
     email: 'Aidan22@hotmail.com',
-    dueDate: '2025-11-30T00:34:34.822Z',
+    session: 6,
     amount: '318.00',
     status: 'Paid',
     createdAt: '2022-10-02T21:15:03.264Z',
@@ -174,9 +174,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-07.webp',
     email: 'Ardith57@yahoo.com',
-    dueDate: '2024-05-17T06:24:33.253Z',
+    session: 7,
     amount: '463.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2023-08-07T21:46:55.537Z',
   },
   {
@@ -186,7 +186,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-02.webp',
     email: 'Aletha_Waters87@gmail.com',
-    dueDate: '2023-12-29T04:41:54.007Z',
+    session: 3,
     amount: '196.00',
     status: 'Pending',
     createdAt: '2022-12-05T08:16:30.407Z',
@@ -198,7 +198,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-14.webp',
     email: 'Mervin.Rutherford@hotmail.com',
-    dueDate: '2024-12-27T21:39:17.142Z',
+    session: 4,
     amount: '384.00',
     status: 'Draft',
     createdAt: '2023-07-03T16:12:56.039Z',
@@ -210,7 +210,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-03.webp',
     email: 'Bianka30@yahoo.com',
-    dueDate: '2025-06-27T15:53:33.802Z',
+    session: 16,
     amount: '812.00',
     status: 'Paid',
     createdAt: '2022-09-17T03:52:26.870Z',
@@ -222,7 +222,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-08.webp',
     email: 'Destini_Williamson34@yahoo.com',
-    dueDate: '2024-12-29T09:04:48.858Z',
+    session: 11,
     amount: '596.00',
     status: 'Pending',
     createdAt: '2023-02-27T21:17:07.214Z',
@@ -234,7 +234,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-06.webp',
     email: 'Philip.OKeefe94@gmail.com',
-    dueDate: '2025-12-20T09:41:31.402Z',
+    session: 10,
     amount: '545.00',
     status: 'Pending',
     createdAt: '2022-11-02T22:49:45.640Z',
@@ -246,7 +246,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-11.webp',
     email: 'Ricky41@yahoo.com',
-    dueDate: '2023-03-26T14:06:10.093Z',
+    session: 10,
     amount: '537.00',
     status: 'Paid',
     createdAt: '2023-01-19T08:56:14.820Z',
@@ -258,7 +258,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-10.webp',
     email: 'Carole17@gmail.com',
-    dueDate: '2023-05-11T05:32:26.048Z',
+    session: 9,
     amount: '437.00',
     status: 'Draft',
     createdAt: '2023-04-17T07:59:45.263Z',
@@ -270,7 +270,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-04.webp',
     email: 'Damian_Little19@yahoo.com',
-    dueDate: '2023-05-04T19:43:09.010Z',
+    session: 9,
     amount: '477.00',
     status: 'Paid',
     createdAt: '2023-07-09T12:32:15.118Z',
@@ -282,9 +282,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-11.webp',
     email: 'Domenick82@yahoo.com',
-    dueDate: '2023-04-06T00:40:53.483Z',
+    session: 7,
     amount: '390.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2022-10-23T23:26:46.522Z',
   },
   {
@@ -294,7 +294,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-13.webp',
     email: 'Berniece.Tillman46@yahoo.com',
-    dueDate: '2025-05-15T18:12:52.917Z',
+    session: 7,
     amount: '365.00',
     status: 'Paid',
     createdAt: '2022-09-19T06:14:33.051Z',
@@ -306,9 +306,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-12.webp',
     email: 'Emily.Dach31@gmail.com',
-    dueDate: '2023-07-14T03:34:19.896Z',
+    session: 15,
     amount: '856.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2023-06-30T18:26:22.479Z',
   },
   {
@@ -318,7 +318,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-14.webp',
     email: 'Frida28@hotmail.com',
-    dueDate: '2024-07-04T22:01:39.425Z',
+    session: 14,
     amount: '717.00',
     status: 'Paid',
     createdAt: '2022-10-18T01:35:35.695Z',
@@ -330,7 +330,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-02.webp',
     email: 'Ismael.Schneider@hotmail.com',
-    dueDate: '2025-11-22T02:05:30.052Z',
+    session: 15,
     amount: '825.00',
     status: 'Draft',
     createdAt: '2022-11-26T19:27:39.054Z',
@@ -342,9 +342,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-12.webp',
     email: 'Madisyn_Labadie@gmail.com',
-    dueDate: '2024-03-12T11:28:15.837Z',
+    session: 7,
     amount: '391.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2023-01-11T14:32:45.015Z',
   },
   {
@@ -354,7 +354,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-01.webp',
     email: 'Arjun_Erdman@yahoo.com',
-    dueDate: '2023-09-30T12:36:37.715Z',
+    session: 1,
     amount: '189.00',
     status: 'Pending',
     createdAt: '2023-03-10T05:41:37.191Z',
@@ -366,7 +366,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-15.webp',
     email: 'Jonas63@hotmail.com',
-    dueDate: '2023-07-06T21:00:07.633Z',
+    session: 1,
     amount: '132.00',
     status: 'Paid',
     createdAt: '2023-03-18T04:41:02.883Z',
@@ -378,7 +378,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-08.webp',
     email: 'Janet.Hand4@yahoo.com',
-    dueDate: '2023-01-28T07:11:15.938Z',
+    session: 1,
     amount: '135.00',
     status: 'Draft',
     createdAt: '2023-04-11T20:45:54.920Z',
@@ -390,7 +390,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-04.webp',
     email: 'Dale61@yahoo.com',
-    dueDate: '2024-10-11T03:06:57.585Z',
+    session: 11,
     amount: '618.00',
     status: 'Pending',
     createdAt: '2023-07-30T19:53:36.828Z',
@@ -402,9 +402,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-08.webp',
     email: 'Ignatius_Herman0@yahoo.com',
-    dueDate: '2023-03-28T14:04:11.491Z',
+    session: 1,
     amount: '133.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2023-07-20T13:24:29.236Z',
   },
   {
@@ -414,9 +414,9 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-07.webp',
     email: 'Reginald27@hotmail.com',
-    dueDate: '2024-02-18T22:41:01.333Z',
+    session: 17,
     amount: '925.00',
-    status: 'Overdue',
+    status: 'Pending',
     createdAt: '2022-12-10T19:07:14.641Z',
   },
   {
@@ -426,7 +426,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-06.webp',
     email: 'Fannie.Torp@yahoo.com',
-    dueDate: '2025-08-31T18:43:46.075Z',
+    session: 17,
     amount: '983.00',
     status: 'Pending',
     createdAt: '2022-11-28T05:58:35.941Z',
@@ -438,7 +438,7 @@ export const invoiceData = [
     avatar:
       'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-12.webp',
     email: 'Marguerite.Frami@hotmail.com',
-    dueDate: '2024-04-12T00:25:23.461Z',
+    session: 15,
     amount: '710.00',
     status: 'Draft',
     createdAt: '2022-09-18T18:52:27.199Z',

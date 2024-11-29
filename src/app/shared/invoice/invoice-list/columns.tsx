@@ -130,20 +130,11 @@ export const getColumns = ({
     render: (value: Date) => <DateCell date={value} />,
   },
   {
-    title: (
-      <HeaderCell
-        title="Due Date"
-        sortable
-        ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'dueDate'
-        }
-      />
-    ),
-    onHeaderCell: () => onHeaderCellClick('dueDate'),
-    dataIndex: 'dueDate',
-    key: 'dueDate',
-    width: 200,
-    render: (value: Date) => <DateCell date={value} />,
+    title: <HeaderCell title="Session Purchased" />,
+    dataIndex: 'session',
+    key: 'session',
+    width: 250,
+    render: (session: number) => session,
   },
   {
     title: (

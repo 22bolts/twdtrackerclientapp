@@ -46,12 +46,14 @@ export default function CreateInvoice({
       console.log('createInvoice data ->', data);
       setReset({
         fromName: '',
+        Gym: '',
         fromAddress: '',
         fromPhone: '',
         toName: '',
         toAddress: '',
         toPhone: '',
         shipping: '',
+        sessionspurchase: '',
         discount: '',
         taxes: '',
         createDate: new Date(),
@@ -120,22 +122,22 @@ export default function CreateInvoice({
               </FormBlockWrapper>
 
               <FormBlockWrapper
-                title={'To:'}
-                description={'To he who will receive this invoice'}
+                title={'Gym:'}
+                description={'The gym the sessions were purchased'}
                 className="pt-7 @2xl:pt-9 @3xl:pt-11"
               >
                 <Input
                   label="Name"
                   placeholder="Enter your name"
-                  {...register('toName')}
-                  error={errors.toName?.message}
+                  {...register('gym')}
+                  error={errors.gym?.message}
                 />
                 <Controller
                   name="toPhone"
                   control={control}
                   render={({ field: { value, onChange } }) => (
                     <PhoneNumber
-                      label="Phone Number"
+                      label="Admin phone Number"
                       country="us"
                       value={value}
                       onChange={onChange}
@@ -152,7 +154,7 @@ export default function CreateInvoice({
                 />
               </FormBlockWrapper>
 
-              <FormBlockWrapper
+              {/* <FormBlockWrapper
                 title={'Schedule:'}
                 description={'To he who will receive this invoice'}
                 className="pt-7 @2xl:pt-9 @3xl:pt-11"
@@ -227,7 +229,7 @@ export default function CreateInvoice({
                     )}
                   />
                 </div>
-              </FormBlockWrapper>
+              </FormBlockWrapper> */}
 
               <AddInvoiceItems
                 watch={watch}

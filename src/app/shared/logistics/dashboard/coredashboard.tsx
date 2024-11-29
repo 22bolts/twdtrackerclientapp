@@ -38,7 +38,7 @@ export default function CoreDashboard() {
 
         {/* <TopCustomer className="col-span-full @3xl:col-span-full @5xl:col-span-full @7xl:col-span-8" /> */}
 
-        <SessionList className="relative @4xl:col-span-2 @7xl:col-span-12" />
+        {/* <SessionList className="relative @4xl:col-span-2 @7xl:col-span-12" /> */}
       </div>
     </div>
   );

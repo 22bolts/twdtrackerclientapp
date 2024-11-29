@@ -3,6 +3,7 @@ import { messages } from '@/config/messages';
 
 export const invoiceFormSchema = z.object({
   fromName: z.string().min(1, { message: messages.nameIsRequired }),
+  gym: z.string().min(1, { message: messages.nameIsRequired }),
   fromAddress: z.string().min(1, { message: messages.addressIsRequired }),
   fromPhone: z.string().optional(),
   toName: z.string().min(1, { message: messages.nameIsRequired }),
@@ -23,6 +24,9 @@ export const invoiceFormSchema = z.object({
   shipping: z.coerce
     .number()
     .min(1, { message: messages.shippingPriceIsRequired }),
+  sessionspurchase: z.coerce
+    .number()
+    .min(1, { message: messages.sessionsPurchaseIsRequired }),
   discount: z.coerce.number().min(1, { message: messages.discountIsRequired }),
   taxes: z.coerce.number().min(1, { message: messages.taxIsRequired }),
   items: z.array(

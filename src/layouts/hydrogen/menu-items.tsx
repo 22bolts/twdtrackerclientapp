@@ -84,9 +84,14 @@ export const menuItems = [
     href: routes.core.sessions,
     icon: <PiCalendar />,
   },
+  // {
+  //   name: 'Payments',
+  //   href: routes.core.payments,
+  //   icon: <PiWallet />,
+  // },
   {
-    name: 'Payments',
-    href: routes.core.payments,
+    name: 'Invoice',
+    href: routes.invoice.home,
     icon: <PiWallet />,
   },
   {
@@ -97,11 +102,11 @@ export const menuItems = [
     href: routes.core.team,
     icon: <PiUsers />,
   },
-  {
-    name: 'Settings',
-    href: 'url',
-    icon: <PiGear />,
-  },
+  // {
+  //   name: 'Settings',
+  //   href: 'url',
+  //   icon: <PiGear />,
+  // },
 
 
 

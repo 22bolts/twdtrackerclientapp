@@ -31,12 +31,14 @@ const pageHeader = {
 
 const invoiceData = {
   fromName: 'Ashley Kling-Breitenberg Jr.',
+  gym: 'Tavan avenue',
   fromAddress: '8179 Armstrong Tunnel Apt. 182 Maribelview, WI 05172',
   toName: 'Cameron Hudson V',
   toAddress: '081 Fadel Extensions Suite 252 West Duncanborough, OK 92119',
   fromPhone: '12083972822',
   toPhone: '12073252812',
   shipping: 10,
+  sessionspurchase: 10,
   discount: 50,
   taxes: 15,
   createDate: new Date(),
@@ -44,18 +46,18 @@ const invoiceData = {
   dueDate: new Date(),
   invoiceNumber: 'INV-0071',
   items: [
-    {
-      item: 'Logo Design',
-      description: 'Custom logo design for website',
-      quantity: 3,
-      price: 200,
-    },
-    {
-      item: 'Web Development',
-      description: 'Front-end and back-end development',
-      quantity: 1,
-      price: 1200,
-    },
+    // {
+    //   item: 'Logo Design',
+    //   description: 'Custom logo design for website',
+    //   quantity: 3,
+    //   price: 200,
+    // },
+    // {
+    //   item: 'Web Development',
+    //   description: 'Front-end and back-end development',
+    //   quantity: 1,
+    //   price: 1200,
+    // },
   ],
 };
 

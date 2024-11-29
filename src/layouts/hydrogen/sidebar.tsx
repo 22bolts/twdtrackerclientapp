@@ -17,7 +17,7 @@ export default function Sidebar({ className }: { className?: string }) {
   return (
     <aside
       className={cn(
-        'fixed bottom-0 start-0 z-50 h-full w-[270px] border-e-2 border-gray-100 bg-white 2xl:w-72 dark:bg-gray-100/50',
+        'fixed bottom-0 start-0 z-50 h-full w-[270px] overflow-hidden border-e-2 border-gray-100 bg-white 2xl:w-72 dark:bg-gray-100/50',
         className
       )}
     >
@@ -30,8 +30,7 @@ export default function Sidebar({ className }: { className?: string }) {
           <Logo className="max-w-[155px]" />
         </Link>
       </div>
-
-      <SimpleBar className="h-[calc(100%-80px)]">
+      <SimpleBar className="h-[calc(100%-80px)] overflow-y-auto">
         <div className="mt-4 pb-3 3xl:mt-6">
           {menuItems.map((item, index) => {
             const isActive = pathname === (item?.href as string);

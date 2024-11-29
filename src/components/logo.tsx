@@ -50,15 +50,15 @@ interface LogoProps {
   className?: string;
 }
 
-export default function Logo({ iconOnly = false, theme = 'light', className }: LogoProps) {
+export default function Logo({ iconOnly = false, theme = 'dark', className }: LogoProps) {
   const imagePath = `/images/Menu Top_${theme}${iconOnly ? '_icon' : ''}.png`;
   
   return (
     <Image
       src={imagePath}
       alt="Logo"
-      width={iconOnly ? 48 : 155}
-      height={iconOnly ? 26 : 28}
+      width={iconOnly ? 48 : 185}
+      height={iconOnly ? 26 : 48}
       className={className}
     />
   );

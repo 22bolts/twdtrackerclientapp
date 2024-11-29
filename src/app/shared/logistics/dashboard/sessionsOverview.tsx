@@ -96,7 +96,7 @@ export default function SessionOverviewCards({ className }: { className?: string
               value={session.value}
               metric={session.metric}
               icon={session.icon}
-              className=""
+              className="w-64"
               titleClassName="capitalize"
               contentClassName="ps-5"
               iconClassName={cn('@5xl:w-20 @5xl:h-20 h-16 w-16')}

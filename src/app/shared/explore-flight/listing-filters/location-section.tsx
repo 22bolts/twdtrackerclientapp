@@ -54,6 +54,9 @@ export default function LocationSelection({
           </div>
           <Transition
             as={Fragment}
+            enter="transition ease-in duration-100"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"

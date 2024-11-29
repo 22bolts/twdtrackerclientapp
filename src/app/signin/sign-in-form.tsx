@@ -49,7 +49,7 @@ export default function SignInForm() {
               label="Email"
               placeholder="Enter your email"
               className="[&>label>span]:font-medium"
-              inputClassName="text-sm"
+              inputClassName="text-sm bg-white border border-gray-300" 
               {...register('email')}
               error={errors.email?.message}
             />
@@ -58,7 +58,7 @@ export default function SignInForm() {
               placeholder="Enter your password"
               size="lg"
               className="[&>label>span]:font-medium"
-              inputClassName="text-sm"
+              inputClassName="text-sm bg-white border border-gray-300" 
               {...register('password')}
               error={errors.password?.message}
             />
@@ -75,7 +75,7 @@ export default function SignInForm() {
                 Forget Password?
               </Link>
             </div>
-            <Button className="w-full" type="submit" size="lg">
+            <Button className="w-full bg-[#8E61E9]" type="submit" size="lg">
               <span>Sign in</span>{' '}
               <PiArrowRightBold className="ms-2 mt-0.5 h-5 w-5" />
             </Button>
