@@ -32,7 +32,8 @@ import { usersTableData } from '@/data/users-table-data';
 // Define interfaces for the data structure
 interface User {
   id: string;
-  full_name: string;
+  first_name: string;
+  middle_name?: string;
   last_name: string;
   email: string;
   avatar?: string;
@@ -56,24 +57,25 @@ interface TransformedUser {
   teams: string[];
 }
 
-const organizeUsersDetails = (users: any[]): TransformedUser[] => {
+const organizeUsersDetails = (users: any[]) => {
   return users.map((user) => ({
     id: user.id.toString(),
     user: {
-      name: user.user?.full_name || "Unknown",
-      email: user.user?.email || "No Email Provided",
-      avatar: user.user?.avatar || 'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-07.webp',
+      name: `${user.first_name} ${user.middle_name || ''} ${user.last_name}`.trim(),
+      email: user.email,
+      avatar: user.avatar || 'https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-09.webp', // default avatar if none provided
     },
-    email: user.user?.email || "No Email Available",
-    purchased: user.user?.purchased || 0,
-    completed: user.user?.completed || 0,
+    email: user.email,
+    purchased: user.purchased || 0, // assuming these fields might not exist in your API data
+    completed: user.completed || 0,
     status: user.status || 'Offline',
-    teams: user.teams || ['Operations'],
+    teams: user.teams || ['Operations'], // default team if none provided
   }));
 };
 
 const ListUsers: React.FC = () => {
-  const [users, setUsers] = useState<TransformedUser[]>([]);
+  // const { data, loading, error } = useQuery(GET_ALL_USERS);
+  const [users, setUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -91,17 +93,37 @@ const ListUsers: React.FC = () => {
     // Implement delete logic here
     console.log(`Deleting user with ID ${id}`);
   };
+  
+  const organizeUsersDetails = () => {
+    
+  }
+
+  // const organizedData = data.getAllUsers.map((userData: any) => ({
+  //   id: userData.id,
+  //   user: {
+  //     name: `${userData.first_name} ${userData.middle_name} ${userData.last_name}`,
+  //     usertag: userData.usertag,
+  //     avatar: userData.avatar? userData.avatar: "", // Add avatar URL if available
+  //   },
+  //   role: userData.role,
+  //   email: userData.email, // Duplicate email for consistency with the original structure
+  //   status: userData.status, // Set a default status or retrieve it from userData if available
+  //   first_name: userData.first_name,
+  //   middle_name: userData.middle_name,
+  //   last_name: userData.last_name,
+  //   usertag: userData.usertag,
+  //   teams: [], // Set teams array or retrieve from userData if available
+  //   // data
+  // }));
+  
+  // console.log(organizedData);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        console.log("JJJJJJJJJJJJJJJJJJJ");
-        const response = await axios.get('http://193.46.198.115:443/api/users/role/clients');
-        console.log("Users:", response.data);
-        const transformedUsers = organizeUsersDetails(response.data.data);
-        console.log("KKKKKKKKKKKKKKK");
+        const response = await axios.get('http://193.46.198.115:443/api/users');
+        const transformedUsers = organizeUsersDetails(response.data);
         setUsers(transformedUsers);
-        console.log("Dummy Users:", usersTableData);
         console.log("Transformed Users:", transformedUsers);
       } catch (err: any) {
         setError(err.message || 'An error occurred while fetching users.');
@@ -124,7 +146,7 @@ const ListUsers: React.FC = () => {
       /> */}
 
     {users.length > 0 ? (
-      <UsersTableV2 data={users} className="@xs:col-span-full" />
+      <UsersTableV2 data={usersTableData} className="@xs:col-span-full" />
       // <div>Users available.</div>
     ) : (
       <div>No users available.</div>

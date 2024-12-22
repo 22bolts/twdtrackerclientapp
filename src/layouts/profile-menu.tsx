@@ -6,7 +6,7 @@ import { Popover } from '@/components/ui/popover';
 import { Title, Text } from '@/components/ui/text';
 import { routes } from '@/config/routes';
 import cn from '@/utils/class-names';
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -27,18 +27,21 @@ const menuItems = [
 ];
 
 function DropdownMenu() {
+  const { data: session } = useSession();
+  const user = session?.user;
+  console.log("User is:", user);
   return (
     <div className="w-64 text-left rtl:text-right">
       <div className="flex items-center border-b border-gray-300 px-6 pb-5 pt-6">
         <Avatar
-          src="https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-11.webp"
+          src={user?.image? user.image : "https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-11.webp"}
           name="Albert Flores"
         />
         <div className="ms-3">
           <Title as="h6" className="font-semibold">
-            Albert Flores
+            {user? user.name : "Albert Flores"}
           </Title>
-          <Text className="text-gray-600">flores@doe.io</Text>
+          <Text className="text-gray-600">{user? user.email : "admin@admin.com"}</Text>
         </div>
       </div>
       <div className="grid px-3.5 py-3.5 font-medium text-gray-700">

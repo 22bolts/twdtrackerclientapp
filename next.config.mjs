@@ -69,10 +69,6 @@ const nextConfig = {
       'img.freepik.com',
     ],
   },
-  env: {
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-  },
   output: 'standalone', // Standalone mode for dynamic features
   reactStrictMode: false,
 };

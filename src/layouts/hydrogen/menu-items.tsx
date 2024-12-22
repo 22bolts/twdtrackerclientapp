@@ -75,7 +75,7 @@ export const menuItems = [
       },
       {
         name: 'Trainers',
-        href: routes.user.listUsers,
+        href: routes.user.listTrainer,
       },
     ],
   },

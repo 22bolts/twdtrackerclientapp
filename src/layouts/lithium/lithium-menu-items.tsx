@@ -105,7 +105,7 @@ export const menuItems: MenuItemsType[] = [
       },
       {
         name: 'Trainers',
-        href: routes.user.listUsers,
+        href: routes.user.listTrainer,
         icon: (
           <span>
             <PiUsers />

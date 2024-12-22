@@ -9,7 +9,8 @@ export const routes = {
   },
   user:{
     create: '/Users/create-user',
-    listUsers: '/Users/all-users'
+    listUsers: '/Users/all-users',
+    listTrainer: '/Users/all-trainers',
   },
   order:{
     create: '/Users/create-user',

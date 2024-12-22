@@ -73,6 +73,8 @@ const organizeUsersDetails = (users: any[]): TransformedUser[] => {
 };
 
 const ListUsers: React.FC = () => {
+  // const { data, loading, error } = useQuery(GET_ALL_USERS);
+  // const [users, setUsers] = useState<any[]>([]);
   const [users, setUsers] = useState<TransformedUser[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -92,11 +94,31 @@ const ListUsers: React.FC = () => {
     console.log(`Deleting user with ID ${id}`);
   };
 
+  // const organizedData = data.getAllUsers.map((userData: any) => ({
+  //   id: userData.id,
+  //   user: {
+  //     name: `${userData.first_name} ${userData.middle_name} ${userData.last_name}`,
+  //     usertag: userData.usertag,
+  //     avatar: userData.avatar? userData.avatar: "", // Add avatar URL if available
+  //   },
+  //   role: userData.role,
+  //   email: userData.email, // Duplicate email for consistency with the original structure
+  //   status: userData.status, // Set a default status or retrieve it from userData if available
+  //   first_name: userData.first_name,
+  //   middle_name: userData.middle_name,
+  //   last_name: userData.last_name,
+  //   usertag: userData.usertag,
+  //   teams: [], // Set teams array or retrieve from userData if available
+  //   // data
+  // }));
+  
+  // console.log(organizedData);
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         console.log("JJJJJJJJJJJJJJJJJJJ");
-        const response = await axios.get('http://193.46.198.115:443/api/users/role/clients');
+        const response = await axios.get('http://193.46.198.115:443/api/users/role/trainers');
         console.log("Users:", response.data);
         const transformedUsers = organizeUsersDetails(response.data.data);
         console.log("KKKKKKKKKKKKKKK");
