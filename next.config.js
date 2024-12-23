@@ -24,11 +24,11 @@ const nextConfig = {
   },
   output: 'standalone',
   reactStrictMode: false,
-  // Add these to disable experimental features
-  // experimental: {
-  //   turbo: false,
-  //   serverActions: false
-  // }
+  experimental: {
+    turbo: {
+        enabled: false, // Properly disable Turbopack
+    },
+  },
 };
 
 module.exports = nextConfig;
