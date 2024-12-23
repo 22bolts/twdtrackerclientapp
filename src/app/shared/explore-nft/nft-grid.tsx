@@ -8,7 +8,7 @@ import { filterNftsData } from '@/data/filter-nfts-data';
 import shuffle from 'lodash/shuffle';
 import { NftCard } from '@/components/cards/nft-card';
 
-let CURRENT_PAGE = 12;
+const CURRENT_PAGE = 12;
 
 export default function NFTGrid() {
   const [isLoading, setLoading] = useState(false);

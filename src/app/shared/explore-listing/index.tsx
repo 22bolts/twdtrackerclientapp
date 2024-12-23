@@ -8,7 +8,7 @@ import { filterProductsData } from '@/data/filter-products-data';
 // Note: using shuffle to simulate the filter effect
 import shuffle from 'lodash/shuffle';
 
-let countPerPage = 12;
+const countPerPage = 12;
 
 export default function ProductsGrid() {
   const [isLoading, setLoading] = useState(false);

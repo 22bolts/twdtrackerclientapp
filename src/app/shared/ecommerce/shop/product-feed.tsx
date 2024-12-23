@@ -8,7 +8,7 @@ import hasSearchedParams from '@/utils/has-searched-params';
 // Note: using shuffle to simulate the filter effect
 import shuffle from 'lodash/shuffle';
 
-let countPerPage = 12;
+const countPerPage = 12;
 
 export default function ProductFeed() {
   const [isLoading, setLoading] = useState(false);

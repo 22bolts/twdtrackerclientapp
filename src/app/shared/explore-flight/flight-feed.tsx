@@ -6,7 +6,7 @@ import FlightBookingCard from '@/components/cards/flight-booking-card';
 import { Tags } from './listing-filters/tags';
 import { flightListingData } from '@/data/flight-filter-data';
 
-let countPerPage = 6;
+const countPerPage = 6;
 
 export default function FlightFeed() {
   const [isLoading, setLoading] = useState(false);

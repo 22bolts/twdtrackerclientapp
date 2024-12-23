@@ -6,13 +6,13 @@ export function useScrollableSlider() {
   const sliderNextBtn = useRef<HTMLButtonElement>(null!);
 
   function scrollToTheRight() {
-    let offsetWidth = sliderEl.current.offsetWidth;
+    const offsetWidth = sliderEl.current.offsetWidth;
     sliderEl.current.scrollLeft += offsetWidth / 2;
     sliderPrevBtn.current.classList.remove('opacity-0', 'invisible');
   }
 
   function scrollToTheLeft() {
-    let offsetWidth = sliderEl.current.offsetWidth;
+    const offsetWidth = sliderEl.current.offsetWidth;
     sliderEl.current.scrollLeft -= offsetWidth / 2;
     sliderNextBtn.current.classList.remove('opacity-0', 'invisible');
   }
@@ -27,8 +27,8 @@ export function useScrollableSlider() {
     initNextPrevBtnVisibility();
 
     function initNextPrevBtnVisibility() {
-      let offsetWidth = filterBarEl.offsetWidth;
-      let scrollWidth = filterBarEl.scrollWidth;
+      const offsetWidth = filterBarEl.offsetWidth;
+      const scrollWidth = filterBarEl.scrollWidth;
       // show next btn when scrollWidth is gather than offsetWidth
       if (scrollWidth > offsetWidth) {
         nextBtn?.classList.remove('opacity-0', 'invisible');
@@ -46,7 +46,7 @@ export function useScrollableSlider() {
     }
 
     function visibleNextAndPrevBtnOnScroll() {
-      let newScrollLeft = filterBarEl?.scrollLeft,
+      const newScrollLeft = filterBarEl?.scrollLeft,
         offsetWidth = filterBarEl?.offsetWidth,
         scrollWidth = filterBarEl?.scrollWidth;
       // reach to the right end

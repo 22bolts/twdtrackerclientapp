@@ -21,13 +21,13 @@ export default function CounterInput({
   const [value, setValue] = useState(defaultValue ?? 1);
 
   function handleIncrement() {
-    let newValue = value + 1;
+    const newValue = value + 1;
     setValue(newValue);
     onChange && onChange(newValue);
   }
 
   function handleDecrement() {
-    let newValue = value > 1 ? value - 1 : 1;
+    const newValue = value > 1 ? value - 1 : 1;
     setValue(newValue);
     onChange && onChange(newValue);
   }
