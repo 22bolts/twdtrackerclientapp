@@ -22,6 +22,10 @@ const nextConfig = {
       'img.freepik.com',
     ],
   },
+  env: {
+    NEXTAUTH_URL: 'https://twdtracker.com',
+    NEXTAUTH_SECRET: 'TTW)mC%Z)]GXd2crp^t+fMaNCu.pg|RH'
+  },
   output: 'standalone',
   reactStrictMode: false,
   experimental: {
