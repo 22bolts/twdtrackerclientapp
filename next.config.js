@@ -8,18 +8,47 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: [
-      'localhost',
-      'randomuser.me',
-      'cloudflare-ipfs.com',
-      'avatars.githubusercontent.com',
-      'picsum.photos',
-      'flagcdn.com',
-      'utfs.io',
-      'images.unsplash.com',
-      's3.amazonaws.com',
-      'isomorphic-furyroad.s3.amazonaws.com',
-      'img.freepik.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cloudflare-ipfs.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'utfs.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 's3.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'isomorphic-furyroad.s3.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.freepik.com',
+      }
     ],
   },
   env: {
