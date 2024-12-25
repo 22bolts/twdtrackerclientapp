@@ -21,7 +21,7 @@ const initialValues: LoginSchema = {
   rememberMe: true,
 };
 
-const API_ENDPOINT = 'http://193.46.198.115:4000/api/users/signin';
+const API_ENDPOINT = 'https://twdtracker.com/api/users/signin';
 
 export default function SignInForm() {
   //TODO: why we need to reset it here

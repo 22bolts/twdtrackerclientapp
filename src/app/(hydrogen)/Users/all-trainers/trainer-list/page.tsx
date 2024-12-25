@@ -118,7 +118,7 @@ const ListUsers: React.FC = () => {
     const fetchUsers = async () => {
       try {
         console.log("JJJJJJJJJJJJJJJJJJJ");
-        const response = await axios.get('http://193.46.198.115:4000/api/users/role/trainers');
+        const response = await axios.get('https://twdtracker.com/api/users/role/trainers');
         console.log("Users:", response.data);
         const transformedUsers = organizeUsersDetails(response.data.data);
         console.log("KKKKKKKKKKKKKKK");
