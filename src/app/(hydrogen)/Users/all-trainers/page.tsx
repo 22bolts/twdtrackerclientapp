@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 };
 
 const pageHeader = {
-  title: 'User List',
+  title: 'Trainer List',
   breadcrumb: [
     {
       href: '/',
       name: 'home',
     },
     {
-      name: 'Clients',
+      name: 'Trainers',
     },
   ],
 };
