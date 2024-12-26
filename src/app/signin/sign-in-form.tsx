@@ -71,34 +71,57 @@ export default function SignInForm() {
     return 'An unexpected error occurred. Please try again.';
   };
 
+  // const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
+  //   setIsLoading(true);
+  //   setError(null);
+
+  //   try {
+  //     const response = await axios.post(API_ENDPOINT, {
+  //       email: data.email,
+  //       password: data.password,
+  //     }, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       timeout: 10000, // 10 second timeout
+  //     });
+
+  //     console.log("Response is:", response);
+
+  //     if (response.data) {
+  //       await signIn('credentials', {
+  //         ...data,
+  //         token: response.data.token,
+  //         callbackUrl: '/'  // Simplify this for now
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.log("Error:", error);
+  //     const errorMessage = getErrorMessage(error);
+  //     setError(errorMessage);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
     setIsLoading(true);
     setError(null);
-
+  
     try {
-      const response = await axios.post(API_ENDPOINT, {
+      const result = await signIn('credentials', {
         email: data.email,
         password: data.password,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        timeout: 10000, // 10 second timeout
+        redirect: true,
+        callbackUrl: routes.core.dashboard // or whatever your dashboard route is
       });
-
-      console.log("Response is:", response);
-
-      if (response.data) {
-        await signIn('credentials', {
-          ...data,
-          token: response.data.token,
-          callbackUrl: '/'  // Simplify this for now
-        });
+  
+      if (result?.error) {
+        setError(result.error);
       }
     } catch (error) {
-      console.log("Error:", error);
-      const errorMessage = getErrorMessage(error);
-      setError(errorMessage);
+      console.error("Sign in error:", error);
+      setError('An unexpected error occurred');
     } finally {
       setIsLoading(false);
     }
